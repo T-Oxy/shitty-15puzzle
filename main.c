@@ -160,7 +160,14 @@ void mouse(int button,int state, int x, int _y) {
 
   if(F==0){ /*タイトル*/
     if (state==GLUT_DOWN && button==GLUT_LEFT_BUTTON) {  /*初期パネルのシャッフル*/
-      for (int i=0;i<16;i++) panel[i] = i; /*ひとまずパネル16個設定*/ 
+      for (int i=0;i<16;i++){panel[i] = i}; /*ひとまずパネル16個設定*/
+      
+      /*クソゲー化...解答不可能な配置に変更*/
+      panel[13] = 14;
+      panel[14] = 13;
+      /*クソゲー化完了*/
+        
+      panel[14] = 13;
       srand((unsigned)time( NULL ));  /*乱数生成*/
       for (int i=0;i<1000;i++){change((rand())%4, (rand())%4);}
       F =1;
